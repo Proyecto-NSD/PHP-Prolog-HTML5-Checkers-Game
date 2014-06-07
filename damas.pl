@@ -13,10 +13,15 @@
 %
 % User interface
 %
-
 % The main relation.
 % Starts the game.
 % Use playX to let the human player begin.
+:- style_check(-singleton).
+
+playPHP(B, FromL, FromC, ToL, ToC) :-
+      assert(min_to_move(o/_)),assert(max_to_move(x/_)),
+      play(human, o, B, FromL/FromC-ToL/ToC).
+	  
 playX :-
       init(B),
       assert(min_to_move(x/_)),assert(max_to_move(o/_)),
@@ -37,10 +42,8 @@ play(_, _, Board) :-
 
 % Get the user's next move.
 play(human, Sign, Board) :-
-     printBoard(Board),
-     write(Sign),write(' move: '),
-     read(Move),
-     process(Sign, Move, Board).
+     write(Board).
+	 
 
 
 % if the user typed an illegal move,
@@ -52,8 +55,10 @@ play(human, Sign, Board) :-
 % Get the computer's next move using alphabeta algorithm.
 play(comp, Sign, Board) :-
      alphabeta(Sign/Board, -100, 100, Next/NewBoard, _, 2),
-     play(human, Next, NewBoard).
+     write(NewBoard).
 
+play(human, Sign, Board, Move) :-
+     process(Sign, Move, Board).
 % exit the game if the user typed 'stop'.
 process(_, stop, _) :- clear.
 
@@ -419,4 +424,3 @@ king_bonusL( [L/C|Xs], Bonus, Agg) :-
              king_bonusL(Xs, Bonus, Agg1).
 
 % End of file
-   

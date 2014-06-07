@@ -1,0 +1,6 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+RewriteRule ^$ 															/GitHub/PHP-Prolog-HTML5-Checkers-Game/nuevo-juego [R=301]
+RewriteRule ^nuevo-juego$ 												/GitHub/PHP-Prolog-HTML5-Checkers-Game/index.php?new_game=1 [L]
+RewriteRule ^ia_turn$        											/GitHub/PHP-Prolog-HTML5-Checkers-Game/index.php?ia_turn=1 [L]
