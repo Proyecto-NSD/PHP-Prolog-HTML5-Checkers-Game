@@ -196,6 +196,7 @@ var RAjax = function ( archivoPHP , parametros , metodo , asincronico) {
 					//Si se realizo correctamente.
 					if (Peticion.status == 200)
 					{
+						console.log(Peticion.responseText);
 						ThisRAjax.respuesta = Peticion.responseText;
 						ThisRAjax.done();
 					} else {

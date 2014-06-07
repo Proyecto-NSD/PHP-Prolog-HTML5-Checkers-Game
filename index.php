@@ -7,11 +7,11 @@
         $bak = $_SESSION["tablero"];  
         
         // Procesar jugada del usuario y de la IA.
-        $cmd = "playPHP(b(".implode(",", array_map(function($val){ return implode(",", $val); }, $_SESSION["tablero"]))."), ".($_POST["source"][0]+1).",".($_POST["source"][1]+1).",".($_POST["target"][0]+1).",".($_POST["target"][1]+1).").";
+        $cmd = "playPHP(board(".implode(",", array_map(function($val){ return implode(",", $val); }, $_SESSION["tablero"]))."), ".($_POST["source"][0]+1).",".($_POST["source"][1]+1).",".($_POST["target"][0]+1).",".($_POST["target"][1]+1).").";
         $output = `swipl -s damas.pl -g "$cmd" -t halt.`;
         if($output)
         {
-            $board = explode(",", substr($output, 2, -1));
+            $board = explode(",", substr($output, 6, -1));
             
             // Esto se debe aser desde prolog, es solo un parche.
             $changes = [];
@@ -29,8 +29,8 @@
             echo(implode("|", array_filter($changes)));        
         }
         else
-        {
-            echo("invalid");
+        {            
+            echo($cmd);
         }
         exit();
     }
