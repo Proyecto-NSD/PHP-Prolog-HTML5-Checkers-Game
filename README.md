@@ -9,15 +9,15 @@ Lo que viene a continuación es una explicación de mi escenario de trabajo, se 
 ---
 
 ### Requerimientos
-1. Swi-Prolog instalado en una pc con Windows 7.
-2. Wamp server con php 5.4 o superior.
+1. [Swi-Prolog](http://www.swi-prolog.org/Download.html) instalado en una pc con Windows 7.
+2. [Wamp server](http://www.wampserver.com/) con php 5.4 o superior.
 3. PHP debe tener el safe_mode apagado, esto permitira llamar a programas que no se encuentran en la misma carpeta que el php que los llama. En el php.ini hay una directiva para esto que debe estar en Off pero aun asi puede que no funcione, para asegurarte debes agregar esto al final del httpd.conf y reiniciar el servidor:
 
 ```apache
 php_admin_flag safe_mode off
 ```
 
-4. Debes tener agregada la carpeta de binarios de la instalacion de Prolog incorporada en el Path de Windows, por ejemplo en mi caso es: C:\Program Files\swipl\bin, si no sabes como hacer esto, aquí hay un tutorial paso a paso para Windows 7.
+4. Debes tener agregada la carpeta de binarios de la instalacion de Prolog incorporada en el Path de Windows, por ejemplo en mi caso es: C:\Program Files\swipl\bin, si no sabes como hacer esto, [aquí hay un tutorial paso a paso](http://furniman.blogspot.com.ar/2012/02/anadir-un-directorio-al-path-del.html) para Windows 7.
 
 5. Dentro de la carpeta www del servidor, creare un directorio llamado "prolog" el cual por supuesto puede tener cualquier otro nombre, dentro de este directorio es donde trabajaremos.
 
@@ -64,7 +64,8 @@ caso contrario, deberás revisar que los pasos previos esten correctos.
 ---
 
 ### El PHP
-1. Como punto de partida destacar que a mi no me funcionaron ninguna de las funciones de ejecucion de programas y cuando digo ninguna, me refiero a ninguna de las del manual, todas fallaban, o mejor dicho, "no hacian nada" porque fallar implica un error y PHP no arrojo ni un notice, en lugar de estas funciones, tube que recurrir a el operador de comillas invertidas razon por la cual previamente tuvimos que desactivar el safe_mode con tanto énfasis.
+1. Como punto de partida destacar que a mi no me funcionaron ninguna de las funciones de ejecucion de programas y cuando digo que ninguna andubo, me refiero a que todas fallaban, o mejor dicho, "no hacian nada" porque fallar implica un error y PHP no arrojo ni siquiera un notice.
+En lugar de estas funciones, tube que recurrir a el operador de comillas invertidas razon por la cual previamente tuvimos que desactivar el safe_mode con tanto énfasis.
 2. En la misma carpeta prolog del servidor, donde pusimos a ejemplo.pl vamos a crear un index.php con el siguiente contenido:
 
 ```php
