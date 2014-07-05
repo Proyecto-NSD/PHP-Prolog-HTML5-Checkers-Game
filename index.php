@@ -3,7 +3,7 @@
     
     if(isset($_GET["ia_turn"]) && $_GET["ia_turn"] == 1)
     {
-        //// Esto se debe aser desde prolog, es solo un parche.
+        // Esto se debe hacer desde prolog, es solo un parche.
         $bak = $_SESSION["tablero"];  
         
         // Procesar jugada del usuario y de la IA.
