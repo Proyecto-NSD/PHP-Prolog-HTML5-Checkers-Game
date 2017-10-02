@@ -3,6 +3,10 @@ PHP-Prolog-HTML5-Checkers-Game
 
 A checkers game developed in HTML5 and PHP where the AI opponent is programmed in Prolog.
 
+## Video tutorial (en español)
+[![Video tutorial](https://img.youtube.com/vi/3sUj523cfPE/0.jpg)](https://www.youtube.com/watch?v=3sUj523cfPE)
+
+
 ## Configuracion y prueba inicial
 Lo que viene a continuación es una explicación de mi escenario de trabajo, se podría hacer en otras plataformas supongo, pero asi es como lo tengo andando yo:
 
